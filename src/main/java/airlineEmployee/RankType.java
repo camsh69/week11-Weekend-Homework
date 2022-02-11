@@ -1,4 +1,4 @@
 package airlineEmployee;
 
-public enum Rank {
+public enum RankType {
 }
