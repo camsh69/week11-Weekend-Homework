@@ -16,6 +16,23 @@ public class CabinCrewMemberTest {
 
     @Test
     public void hasName() {
+        assertEquals("Mable Able", cabinCrewMember.getName());
+    }
+
+    @Test
+    public void hasRank() {
         assertEquals(RankType.FLIGHTATTENDANT, cabinCrewMember.getRankType());
+    }
+
+    @Test
+    public void canChangeName() {
+        cabinCrewMember.setName("Mable Smith");
+        assertEquals("Mable Smith", cabinCrewMember.getName());
+    }
+
+    @Test
+    public void canChangeRank() {
+        cabinCrewMember.setRankType(RankType.PURSER);
+        assertEquals(RankType.PURSER, cabinCrewMember.getRankType());
     }
 }
