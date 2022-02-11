@@ -13,7 +13,7 @@ public class Plane {
     public PlaneType getPlaneType() {
         return this.planeType;
     }
-    
+
     public int getTotalWeight() {
         return this.totalWeight;
     }
