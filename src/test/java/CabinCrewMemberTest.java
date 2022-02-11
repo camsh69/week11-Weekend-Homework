@@ -16,6 +16,6 @@ public class CabinCrewMemberTest {
 
     @Test
     public void hasName() {
-        assertEquals(RankType.FLIGHTATTENDANT, cabinCrewMember.getRankType())
+        assertEquals(RankType.FLIGHTATTENDANT, cabinCrewMember.getRankType());
     }
 }

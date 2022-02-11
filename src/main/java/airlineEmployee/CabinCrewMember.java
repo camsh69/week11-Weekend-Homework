@@ -2,19 +2,19 @@ package airlineEmployee;
 
 public class CabinCrewMember {
 
-    private int name;
+    private String name;
     private RankType rankType;
 
-    public CabinCrewMember(int name, RankType rankType) {
+    public CabinCrewMember(String name, RankType rankType) {
         this.name = name;
         this.rankType = rankType;
     }
 
-    public int getName() {
+    public String getName() {
         return this.name;
     }
 
-    public void setName(int name) {
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -26,4 +26,4 @@ public class CabinCrewMember {
         this.rankType = rankType;
     }
 }
-}
+
