@@ -13,11 +13,7 @@ public class Plane {
     public PlaneType getPlaneType() {
         return this.planeType;
     }
-
-    public void setPlaneType(PlaneType planeType) {
-        this.planeType = planeType;
-    }
-
+    
     public int getTotalWeight() {
         return this.totalWeight;
     }
