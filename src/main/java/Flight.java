@@ -27,7 +27,7 @@ public class Flight {
         this.departureTime = departureTime;
     }
 
-    
+
     public ArrayList<Pilot> getPilots() {
         return this.pilots;
     }
@@ -49,7 +49,7 @@ public class Flight {
     }
 
     public String getFlightNumber() {
-        return flightNumber;
+        return this.flightNumber;
     }
 
     public void setFlightNumber(String flightNumber) {
@@ -57,7 +57,7 @@ public class Flight {
     }
 
     public String getDestination() {
-        return destination;
+        return this.destination;
     }
 
     public void setDestination(String destination) {
@@ -65,7 +65,7 @@ public class Flight {
     }
 
     public String getDepartureAirport() {
-        return departureAirport;
+        return this.departureAirport;
     }
 
     public void setDepartureAirport(String departureAirport) {
@@ -73,7 +73,7 @@ public class Flight {
     }
 
     public String getDepartureTime() {
-        return departureTime;
+        return this.departureTime;
     }
 
     public void setDepartureTime(String departureTime) {

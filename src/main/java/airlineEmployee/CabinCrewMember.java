@@ -25,5 +25,14 @@ public class CabinCrewMember {
     public void setRankType(RankType rankType) {
         this.rankType = rankType;
     }
+
+    public String relayMessage(String event) {
+        if (event == "Start of flight") {
+            return "Sit back, relax and enjoy the flight";
+        } else if (event == "Turbulence") {
+            return "Please fasten seatbelts";
+        }
+        return null;
+    }
 }
 
