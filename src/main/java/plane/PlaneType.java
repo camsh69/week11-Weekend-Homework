@@ -1,17 +1,23 @@
 package plane;
 
 public enum PlaneType {
-    BOEING747(467),
-    AIRBUSA380(469),
-    AIRBUS340(340);
+    AIRBUS340(340, 18680),
+    AIRBUSA380(469, 18760),
+    BOEING747(467, 18680);
 
     private final int capacity;
+    private final int totalWeight;
 
-    PlaneType(int capacity) {
+    PlaneType(int capacity, int totalWeight) {
         this.capacity = capacity;
+        this.totalWeight = totalWeight;
     }
 
     public int getCapacity() {
         return this.capacity;
+    }
+
+    public int getTotalWeight() {
+        return totalWeight;
     }
 }
