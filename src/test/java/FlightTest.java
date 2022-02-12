@@ -12,7 +12,6 @@ public class FlightTest {
 
     Flight flight;
     Pilot pilot;
-    Pilot firstOfficer;
     CabinCrewMember flightAttendant1;
     CabinCrewMember flightAttendant2;
     Plane plane;
@@ -25,9 +24,8 @@ public class FlightTest {
         plane = new Plane(PlaneType.AIRBUS340);
         flight = new Flight(plane,"FR756", "FUE", "EDI", "12:30");
         flight.addPilots(pilot);
-//        flight.addCabinCrewMembers(firstOfficer);
-//        flight.addCabinCrewMembers(flightAttendant1);
-//        flight.addCabinCrewMembers(flightAttendant2);
+        flight.addCabinCrewMembers(flightAttendant1);
+        flight.addCabinCrewMembers(flightAttendant2);
     }
 
     @Test
@@ -93,14 +91,33 @@ public class FlightTest {
 
     @Test
     public void canAddPilots() {
-        firstOfficer = new Pilot("Skye Silimit", RankType.FIRSTOFFICER, "SD45567U");
+        Pilot firstOfficer = new Pilot("Skye Silimit", RankType.FIRSTOFFICER, "SD45567U");
         flight.addPilots(firstOfficer);
         assertTrue(flight.getPilots().contains(firstOfficer));
     }
 
-    @Test 
+    @Test
     public void canRemovePilots() {
         flight.removePilots(pilot);
         assertFalse(flight.getPilots().contains(pilot));
+    }
+
+    @Test
+    public void hasCabinCrewMembers() {
+        assertTrue(flight.getCabinCrewMembers().contains(flightAttendant1));
+        assertTrue(flight.getCabinCrewMembers().contains(flightAttendant2));
+    }
+
+    @Test
+    public void canAddCabinCrewMembers() {
+        CabinCrewMember purser = new CabinCrewMember("Anne Black", RankType.PURSER);
+        flight.addCabinCrewMembers(purser);
+        assertTrue(flight.getCabinCrewMembers().contains(purser));
+    }
+
+    @Test
+    public void canRemoveCabinCrewMembers() {
+        flight.removeCabinCrewMember(flightAttendant1);
+        assertFalse(flight.getCabinCrewMembers().contains(flightAttendant1));
     }
 }

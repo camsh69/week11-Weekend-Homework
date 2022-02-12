@@ -84,6 +84,10 @@ public class Flight {
         this.cabinCrewMembers.add(cabinCrewMember);
     }
 
+    public void removeCabinCrewMember(CabinCrewMember cabinCrewMember) {
+        this.cabinCrewMembers.remove(cabinCrewMember);
+    }
+
     public void addPilots(Pilot pilot) {
         this.pilots.add(pilot);
     }
