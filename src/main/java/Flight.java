@@ -27,7 +27,7 @@ public class Flight {
         this.departureTime = departureTime;
     }
 
-
+    
     public ArrayList<Pilot> getPilots() {
         return this.pilots;
     }
@@ -94,6 +94,16 @@ public class Flight {
 
     public void removePilots(Pilot pilot) {
         this.pilots.remove(pilot);
+    }
+
+    public int getRemainingSeats() {
+        return this.plane.getPlaneType().getCapacity() - this.passengers.size();
+    }
+
+    public void addPassenger(Passenger passenger) {
+        if (this.passengers.size() < this.plane.getPlaneType().getCapacity()) {
+            this.passengers.add(passenger);
+        }
     }
 }
 

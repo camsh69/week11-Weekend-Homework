@@ -18,11 +18,11 @@ public class FlightTest {
 
     @Before
     public void before() {
+        plane = new Plane(PlaneType.AIRBUS340);
+        flight = new Flight(plane,"FR756", "FUE", "EDI", "12:30");
         pilot = new Pilot("Buck Rodgers", RankType.CAPTAIN, "WE3456Y");
         flightAttendant1 = new CabinCrewMember("Pete Smith", RankType.FLIGHTATTENDANT);
         flightAttendant2 = new CabinCrewMember("Julie White", RankType.FLIGHTATTENDANT);
-        plane = new Plane(PlaneType.AIRBUS340);
-        flight = new Flight(plane,"FR756", "FUE", "EDI", "12:30");
         flight.addPilots(pilot);
         flight.addCabinCrewMembers(flightAttendant1);
         flight.addCabinCrewMembers(flightAttendant2);
@@ -119,5 +119,23 @@ public class FlightTest {
     public void canRemoveCabinCrewMembers() {
         flight.removeCabinCrewMember(flightAttendant1);
         assertFalse(flight.getCabinCrewMembers().contains(flightAttendant1));
+    }
+
+    @Test
+    public void flightIsEmptyAtStart() {
+        assertTrue(flight.getPassengers().isEmpty());
+    }
+
+    @Test
+    public void getNumberOfAvailableSeats() {
+        assertEquals(340, flight.getRemainingSeats());
+    }
+
+    @Test
+    public void canAddPassenger() {
+        Passenger passenger = new Passenger("Campbell Forsyth", 1);
+        flight.addPassenger(passenger);
+        assertTrue(flight.getPassengers().contains(passenger));
+        assertEquals(339, flight.getRemainingSeats());
     }
 }
