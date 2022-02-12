@@ -87,6 +87,10 @@ public class Flight {
     public void addPilots(Pilot pilot) {
         this.pilots.add(pilot);
     }
+
+    public void removePilots(Pilot pilot) {
+        this.pilots.remove(pilot);
+    }
 }
 
 

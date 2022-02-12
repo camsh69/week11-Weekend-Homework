@@ -6,14 +6,13 @@ import org.junit.Test;
 import plane.Plane;
 import plane.PlaneType;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class FlightTest {
 
     Flight flight;
     Pilot pilot;
-    CabinCrewMember firstOfficer;
+    Pilot firstOfficer;
     CabinCrewMember flightAttendant1;
     CabinCrewMember flightAttendant2;
     Plane plane;
@@ -21,15 +20,14 @@ public class FlightTest {
     @Before
     public void before() {
         pilot = new Pilot("Buck Rodgers", RankType.CAPTAIN, "WE3456Y");
-        firstOfficer = new CabinCrewMember("Skye Silimit", RankType.FIRSTOFFICER);
         flightAttendant1 = new CabinCrewMember("Pete Smith", RankType.FLIGHTATTENDANT);
         flightAttendant2 = new CabinCrewMember("Julie White", RankType.FLIGHTATTENDANT);
         plane = new Plane(PlaneType.AIRBUS340);
+        flight = new Flight(plane,"FR756", "FUE", "EDI", "12:30");
         flight.addPilots(pilot);
 //        flight.addCabinCrewMembers(firstOfficer);
 //        flight.addCabinCrewMembers(flightAttendant1);
 //        flight.addCabinCrewMembers(flightAttendant2);
-        flight = new Flight(plane,"FR756", "FUE", "EDI", "12:30");
     }
 
     @Test
@@ -88,8 +86,21 @@ public class FlightTest {
         assertEquals("13:00", flight.getDepartureTime());
     }
 
-//    @Test
-//    public void hasPilots() {
-//        assertTrue(flight.getPilots().contains(pilot));
-//    }
+    @Test
+    public void hasPilots() {
+        assertTrue(flight.getPilots().contains(pilot));
+    }
+
+    @Test
+    public void canAddPilots() {
+        firstOfficer = new Pilot("Skye Silimit", RankType.FIRSTOFFICER, "SD45567U");
+        flight.addPilots(firstOfficer);
+        assertTrue(flight.getPilots().contains(firstOfficer));
+    }
+
+    @Test 
+    public void canRemovePilots() {
+        flight.removePilots(pilot);
+        assertFalse(flight.getPilots().contains(pilot));
+    }
 }
