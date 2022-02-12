@@ -1,7 +1,7 @@
 package plane;
 
 public enum PlaneType {
-    AIRBUS340(340, 18680),
+    AIRBUS340(340, 13600),
     AIRBUSA380(469, 18760),
     BOEING747(467, 18680);
 
