@@ -2,6 +2,7 @@ import airlineEmployee.Pilot;
 import airlineEmployee.RankType;
 import org.junit.Before;
 import org.junit.Test;
+import plane.PlaneType;
 
 import static org.junit.Assert.assertEquals;
 
@@ -23,5 +24,10 @@ public class PilotTest {
     public void canChangeLicenceNumber() {
         pilot.setLicenceNumber("XY12345Q");
         assertEquals("XY12345Q", pilot.getLicenceNumber());
+    }
+
+    @Test
+    public void pilotCanFlyPlane() {
+        assertEquals("Pilot can fly AIRBUSA380", pilot.canFlyPlane(PlaneType.AIRBUSA380));
     }
 }
